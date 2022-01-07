@@ -4,7 +4,11 @@ import NavBar from './components/NavBar';
 
 function App() {
   return (
-    <NavBar />
+    <>
+      <NavBar />
+      <h2>Primer app react</h2>
+    </>
+
   );
 }
 
