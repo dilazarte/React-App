@@ -1,7 +1,7 @@
-import logo from './logo.svg';
 import './App.css';
 import NavBar from './components/NavBar';
 import ItemListContainer from './components/ItemListContainer';
+import ItemCount from './components/ItemCount';
 
 function App() {
   return (
@@ -9,6 +9,7 @@ function App() {
       <NavBar />
       <p style={{color: "red", fontSize: "30px", fontFamily: "monospace", textAlign: "center"}}>
         <ItemListContainer greetings="Primer string de la app" />
+        <ItemCount stock={4} initial={1} />
       </p>
     </>
   );
