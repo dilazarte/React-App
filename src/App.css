@@ -1,3 +1,6 @@
+*{
+  box-sizing: border-box
+}
 .App {
   text-align: center;
 }
@@ -36,7 +39,9 @@
     transform: rotate(360deg);
   }
 }
-
+body{
+  background-color: rgb(236, 236, 236);
+}
 .navbar{
   display: flex;
   justify-content: space-around;
@@ -74,4 +79,43 @@ ul li a:hover{
   margin: auto;
   padding: 6px;
   border-radius: 5px;
+}
+.itemListContainer{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content:space-around;
+  margin: auto;
+  width: 80%;
+  margin-bottom: 15px;
+}
+/*Estilos de las tarjetitas de productos*/
+.producto{
+  display: flex;
+  flex-flow: column;
+  box-shadow: 0 0 0.2em rgb(196, 196, 196);
+  justify-content: center;
+  align-items: center;
+  width: 230px;
+  background-color: white;
+  border-radius: 5px;
+  border: 1px solid rgb(187, 187, 187);
+  margin-top: 7px;
+  overflow: hidden;
+  transition-property: box-shadow;
+  transition-duration: 0.2s;
+}
+.producto:hover{
+  box-shadow: 0 0 0.8em rgb(196, 196, 196);
+}
+.info-item-container{
+  display: flex;
+  flex-flow: column;
+}
+.info-item-container > span{
+  margin-bottom: 0.4em;
+}
+.producto > img{
+  width: 100%;
+  object-fit: cover;
+  border-bottom: 1px solid #d6d6d6;
 }
