@@ -1,9 +1,11 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
+import Promise from "./Promise";
+import ItemList from "./ItemList";
 
 const ItemListContainer = (props) => {
     return(
         <>
-            { props.greetings }
+            <ItemList />
         </>
         
     )

@@ -6,7 +6,8 @@ function ItemCount({stock, initial, onAdd}) {
         <div className='itemCountContiner'>
             <p className="cantidadNum">Cantidad: {cantidad}</p>
             <button disabled={cantidad === 1} onClick={()=> setCantidad(cantidad-1)}> - </button> <button disabled={stock=== cantidad} onClick={()=> setCantidad(cantidad+1)}> + </button><br />
-            <button onClick={ ()=> alert(`Se agregaron ${cantidad} productos al carrito`)}>Agregar al carrito</button>
+            <button onClick={ ()=> {alert(`Se agregaron ${cantidad} productos al carrito`)
+            setCantidad(initial)} }>Agregar al carrito</button>
         </div>
     )
 }
