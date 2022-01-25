@@ -1,19 +1,44 @@
 import './App.css';
 import NavBar from './components/NavBar';
 import ItemListContainer from './components/ItemListContainer';
-import ItemCount from './components/ItemCount';
+import { BrowserRouter, Switch, Route, Router } from 'react-router-dom'
+import Nosotros from './components/Nosotros';
+import Productos from './components/Productos';
+import Contacto from './components/Contacto';
+import ItemDetail from './components/ItemDetail';
 import ItemDetailContainer from './components/ItemDetailContainer';
+
+
 //style={{color: "red", fontSize: "30px", fontFamily: "monospace", textAlign: "center"}}
 function App() {
   return (
-    <>
-      <NavBar />
-      <div style={{fontSize: "20px", textAlign: "center", marginBottom:"5px"}}>
-        {/* <ItemListContainer /> */}
-        <ItemCount stock={4} initial={1} />
-        <ItemDetailContainer />
-      </div>
-    </>
+    <BrowserRouter>
+        <>
+          <NavBar />
+          <Switch>
+            <Route exact path="/item/:Id">
+              <ItemDetailContainer />
+            </Route>
+            <Route exact path="/category/:IdCategory">
+              <ItemListContainer />
+            </Route>
+            <Route exact path="/">
+                  <ItemListContainer />
+            </Route>
+            <Route exact path="/nosotros">
+                  <Nosotros />
+            </Route>
+            <Route exact path="/contacto">
+                  <Contacto />
+            </Route>
+            <Route exact path="/productos">
+              <Productos />
+            </Route>
+          </Switch>
+          
+        </>
+    </BrowserRouter>
+    
   );
 }
 
