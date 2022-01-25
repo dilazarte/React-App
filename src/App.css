@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap');
+
 *{
   box-sizing: border-box
 }
@@ -38,6 +40,7 @@
   to {
     transform: rotate(360deg);
   }
+/*=======ESTILOS DEL NAV=====*/
 }
 body{
   background-color: rgb(236, 236, 236);
@@ -48,8 +51,9 @@ body{
   background-color: #282c34;
   align-items: center;
 }
-.logo{
-  color: white;
+.logo-brand{
+  width: 200px;
+  padding: 7px 0;
 }
 .links{
   display: flex;
@@ -58,6 +62,14 @@ body{
 ul li {
   list-style: none;
   margin: 0 5px;
+  color: rgb(250, 250, 250);
+  text-decoration: none;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+ul li:hover{
+  color:rgb(177, 177, 177);
+  transition: 0.3s;
 }
 ul li a{
   color: rgb(250, 250, 250);
@@ -65,7 +77,8 @@ ul li a{
   text-transform: uppercase;
 }
 ul li a:hover{
-  text-decoration: underline;
+  color:rgb(177, 177, 177);
+  transition: 0.3s;
 }
 .cantidadNum{
   font-size: 18px;
@@ -74,24 +87,103 @@ ul li a:hover{
   margin: 0;
 }
 .itemCountContiner{
-  background-color:rgb(241, 238, 198);
-  width: 200px;
-  margin: auto;
-  padding: 6px;
+  background-color:rgb(255, 255, 255);
+  width: 12em;
+  /* padding: 6px; */
   border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-top: 2em;
 }
-.itemListContainer{
+.itemCountContiner div{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.3em;
+}
+.controlSust, .controlAdd{
+  width: 3em;
+  background-color: white;
+  border: none;
+  color: #2591ff;
+  /* font-size: 25px; */
+  /* font-weight: 700; */
+  border: 1px solid;
+  border-radius: 5px;
+  width: 50px;
+  cursor: pointer;
+}
+.itemCountContiner div button:hover{
+  background-color: #2591ff;
+  color: white;
+}
+.itemCountContiner div span{
+  background-color: white;
+  width: 4em;
+  text-align: center;
+}
+.itemCountContiner .addToCard{
+  outline: none;
+  background-color: #2591ff;
+  border: inherit;
+  padding: 10px;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+}
+/* .ItemListContainer{
+  position: absolute;
+} */
+.itemList{
   display: flex;
   flex-wrap: wrap;
   justify-content:space-around;
   margin: auto;
-  width: 80%;
-  margin-bottom: 15px;
+  width: 70%;
+  margin-bottom: 1em;
+  margin-top: 1.5em;
+}
+/*=====LOADING=====*/
+.lds-ring {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.lds-ring div {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border: 6px solid #fff;
+  border-radius: 50%;
+  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: rgb(168, 168, 168) transparent transparent transparent;
+}
+.lds-ring div:nth-child(1) {
+  animation-delay: -0.45s;
+}
+.lds-ring div:nth-child(2) {
+  animation-delay: -0.3s;
+}
+.lds-ring div:nth-child(3) {
+  animation-delay: -0.15s;
+}
+@keyframes lds-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 /*Estilos de las tarjetitas de productos*/
 .producto{
   display: flex;
   flex-flow: column;
+  flex-direction: column;
   box-shadow: 0 0 0.2em rgb(196, 196, 196);
   justify-content: center;
   align-items: center;
@@ -99,10 +191,13 @@ ul li a:hover{
   background-color: white;
   border-radius: 5px;
   border: 1px solid rgb(187, 187, 187);
-  margin-top: 7px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   overflow: hidden;
   transition-property: box-shadow;
-  transition-duration: 0.2s;
+  transition-duration: 0.3s;
+  cursor: pointer;
+  padding-bottom: 1em;
 }
 .producto:hover{
   box-shadow: 0 0 0.8em rgb(196, 196, 196);
@@ -110,21 +205,47 @@ ul li a:hover{
 .info-item-container{
   display: flex;
   flex-flow: column;
+  height: 90px;
+  overflow: hidden;
+  /* position: relative; */
 }
 .info-item-container > span{
   margin-bottom: 0.4em;
 }
-.producto > img{
+.producto > .img-container{
   width: 100%;
-  object-fit: cover;
+  height: 200px;
+  background-size: contain;
   border-bottom: 1px solid #d6d6d6;
+  background-position: center;
+  background-repeat: no-repeat;
 }
-
+.price-item{
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.1em;
+  font-weight: 700;
+  margin-top: 0.8em;
+  text-align: center;
+}
+.title-item{
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.9em;
+  font-weight: 500;
+  text-align: center;
+  width: auto;
+  height: 40px;
+  padding: 0px 10px;
+}
+a{
+  text-decoration: none;
+  color: black;
+}
 /*Item detail container*/
 .item-detail{
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-around;
-  width: 70%;
+  width: 60%;
   margin-top: 1em;
   margin-left: auto;
   margin-right: auto;
@@ -133,18 +254,19 @@ ul li a:hover{
   border-radius: 7px;
   box-shadow: 0 0 .4em rgb(219, 219, 219);
 }
-.item-detail img{
-  width: 50%;
-  height: auto;
+.item-detail > img{
+  width: auto;
+  height: 300px;
   margin: auto;
+  object-fit: cover;
 }
-.item-detail div {
+.item-detail .info-detail {
   display: flex;
   margin: auto;
-  width: auto;
+  width: 50%;
   padding: 1em;
   flex-flow: column;
-  justify-content: space-between;
+  /* justify-content: space-between; */
 }
 .item-detail div > h1 {
   font-size: 1em;
@@ -152,9 +274,12 @@ ul li a:hover{
 .item-detail div > p {
   font-size: 0.8em;
   text-align: justify;
+  font-size: 15px;
 }
 .item-detail div > :nth-child(2){
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+  font-family:'Nunito', sans-serif;
+  font-weight: 500;
+  font-size: 17px;
 }
 .item-detail div > :nth-child(3) > span{
   font-weight: 600;
@@ -165,8 +290,100 @@ ul li a:hover{
 .item-detail div > :nth-child(3) {
   font-weight: 600;
   font-size: 0.7em;
+  font-size: 15px;
 }
 .item-detail div > :nth-child(4) {
   font-weight: 600;
   font-size: 0.7em;
+  font-size: 15px;
+}
+
+.producto:hover .test1{
+  position: absolute;
+}
+
+/*=====TOGGLE MENU ICON=====*/
+.toggleIcon{
+  color: white;
+  display: none;
+}
+.closeIcon{
+  color:white;
+  display: none;
+}
+
+/*submenu*/
+.subMenu{
+  display: none;
+  position: absolute;
+  width: 150px;
+  background-color: #282c34ee;
+  padding: 0;
+  height: 150px;
+}
+.subMenu li {
+  padding-top: 12px;
+}
+.links > li:hover .subMenu{
+  display: block;
+}
+/*=====MEDIAS Q=====*/
+@media (max-width: 650px) {
+  .toggleIcon{
+    display: block;
+  }
+  .links{
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background-color: #494e58;
+    left: 0;
+    /* top: 37px; */
+    top: -150%;
+    transition: all 0.8s ease;
+    display: block;
+    padding: 0;
+  }
+  ul li{
+    left: 0;
+    text-align: center;
+    margin: 3em 0;
+  }
+  .showNav.links{
+    top: -16px;
+  }
+  .closeIcon{
+    display: block;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 35px;
+  }
+  .links > li:hover .subMenu{
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    background-color: #4a515fee;
+    padding: 0;
+    top: 25px;
+    height: auto;
+    font-size: 12px;
+    margin: auto;
+  }
+  .subMenu li{
+    margin: 0;
+    padding: 10px 0;
+  }
+  .itemList{
+    width: 95%;
+  }
+}
+
+@media (max-width: 840px){
+  /*infodetail*/
+  .item-detail .info-detail{
+    width: 100%;
+  }
 }
