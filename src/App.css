@@ -87,14 +87,17 @@ ul li a:hover{
   margin: 0;
 }
 .itemCountContiner{
-  background-color:rgb(255, 255, 255);
+  background-color: rgb(255 255 255);
   width: 12em;
   /* padding: 6px; */
   border-radius: 5px;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
   margin-top: 2em;
+  height: 84px;
+  padding: 0 .3em;
+  border: 1px solid #2591ff3b;
 }
 .itemCountContiner div{
   display: flex;
@@ -103,14 +106,14 @@ ul li a:hover{
 }
 .controlSust, .controlAdd{
   width: 3em;
-  background-color: white;
+  background-color: #ffffff;
   border: none;
   color: #2591ff;
   /* font-size: 25px; */
-  /* font-weight: 700; */
   border: 1px solid;
   border-radius: 5px;
-  width: 50px;
+  width: 30px;
+  height: 30px;
   cursor: pointer;
 }
 .itemCountContiner div button:hover{
@@ -118,11 +121,21 @@ ul li a:hover{
   color: white;
 }
 .itemCountContiner div span{
-  background-color: white;
-  width: 4em;
-  text-align: center;
+  background-color: #ffffff;
+  width: 3em;
+  display: flex;
+  justify-content: center;
+  /* text-align: center; */
+  /* FONT-WEIGHT: 200; */
+  font-size: 18px;
+  font-family: 'Nunito';
+  font-weight: 600;
+  /* vertical-align: middle; */
+  align-content: center;
+  align-items: center;
+  border: 1px solid #e1e1e1;
 }
-.itemCountContiner .addToCard{
+.itemCountContiner .addToCart{
   outline: none;
   background-color: #2591ff;
   border: inherit;
@@ -130,6 +143,27 @@ ul li a:hover{
   border-radius: 5px;
   color: white;
   cursor: pointer;
+}
+.goToCart{
+  outline: none;
+  background-color: #2591ff;
+  border: inherit;
+  padding: 10px;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  width: max-content;
+}
+.continueShopping{
+  outline: none;
+  background-color: #fc3a0a;
+  border: inherit;
+  padding: 10px;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  width: max-content;
+  margin-top: .2em;
 }
 /* .ItemListContainer{
   position: absolute;
@@ -247,6 +281,7 @@ a{
   justify-content: space-around;
   width: 60%;
   margin-top: 1em;
+  margin-bottom: 1em;
   margin-left: auto;
   margin-right: auto;
   background-color: white;
@@ -254,9 +289,9 @@ a{
   border-radius: 7px;
   box-shadow: 0 0 .4em rgb(219, 219, 219);
 }
-.item-detail > img{
-  width: auto;
-  height: 300px;
+.item-detail img{
+  width: 40%;
+  /* height: 250px; */
   margin: auto;
   object-fit: cover;
 }
@@ -272,15 +307,17 @@ a{
   font-size: 1em;
 }
 .item-detail div > p {
-  font-size: 0.8em;
+  font-family:'Nunito', sans-serif;
+  font-weight: 600;
+  font-size: 1em;
   text-align: justify;
-  font-size: 15px;
+  /* font-size: 15px; */
 }
-.item-detail div > :nth-child(2){
+/* .item-detail div > :nth-child(2){
   font-family:'Nunito', sans-serif;
   font-weight: 500;
   font-size: 17px;
-}
+} */
 .item-detail div > :nth-child(3) > span{
   font-weight: 600;
 }
@@ -383,7 +420,13 @@ a{
 
 @media (max-width: 840px){
   /*infodetail*/
+  .item-detail{
+    width: 90%;
+  }
   .item-detail .info-detail{
+    width: 100%;
+  }
+  .item-detail img {
     width: 100%;
   }
 }
