@@ -34,6 +34,9 @@ function App() {
             <Route exact path="/productos">
               <Productos />
             </Route>
+            <Route exact path="/cart">
+              <h1>El carrito de compra todavía en construcción!</h1>
+            </Route>
           </Switch>
           
         </>
