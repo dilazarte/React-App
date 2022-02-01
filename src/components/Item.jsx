@@ -14,7 +14,6 @@ function Item({item}) {
                         {/* <span className='description-item'>Categoria: {item.category}</span> */}
                         <span className='title-item'>{item.title}</span>
                     </div>
-
             </div>
             </Link>
     )
