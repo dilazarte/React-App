@@ -7,41 +7,42 @@ import Productos from './components/Productos';
 import Contacto from './components/Contacto';
 import ItemDetail from './components/ItemDetail';
 import ItemDetailContainer from './components/ItemDetailContainer';
+import CartContext from './components/CartContext';
+import Cart from './components/Cart';
 
-
-//style={{color: "red", fontSize: "30px", fontFamily: "monospace", textAlign: "center"}}
 function App() {
   return (
-    <BrowserRouter>
-        <>
-          <NavBar />
-          <Switch>
-            <Route exact path="/item/:Id">
-              <ItemDetailContainer />
-            </Route>
-            <Route exact path="/category/:IdCategory">
-              <ItemListContainer />
-            </Route>
-            <Route exact path="/">
-                  <ItemListContainer />
-            </Route>
-            <Route exact path="/nosotros">
-                  <Nosotros />
-            </Route>
-            <Route exact path="/contacto">
-                  <Contacto />
-            </Route>
-            <Route exact path="/productos">
-              <Productos />
-            </Route>
-            <Route exact path="/cart">
-              <h1>El carrito de compra todavía en construcción!</h1>
-            </Route>
-          </Switch>
-          
-        </>
-    </BrowserRouter>
-    
+    <CartContext>
+      <BrowserRouter>
+          <>
+            <NavBar />
+            <Switch>
+              <Route exact path="/item/:Id">
+                <ItemDetailContainer />
+              </Route>
+              <Route exact path="/category/:IdCategory">
+                <ItemListContainer />
+              </Route>
+              <Route exact path="/">
+                    <ItemListContainer />
+              </Route>
+              <Route exact path="/nosotros">
+                    <Nosotros />
+              </Route>
+              <Route exact path="/contacto">
+                    <Contacto />
+              </Route>
+              <Route exact path="/productos">
+                <Productos />
+              </Route>
+              <Route exact path="/cart">
+                <Cart />
+              </Route>
+            </Switch>
+            
+          </>
+      </BrowserRouter>
+    </CartContext>
   );
 }
 

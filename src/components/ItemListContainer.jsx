@@ -6,15 +6,6 @@ import { useParams } from 'react-router-dom';
 const ItemListContainer = () => {
     const [arrayProductos, setArrayProductos] = useState([])
     const { IdCategory } = useParams()
-    
-        // useEffect(()=>{
-        //     fetch('https://fakestoreapi.com/products/')
-        //             .then(res=>res.json())
-        //             .then(res => {
-        //                 setArrayProductos(res)
-        //                 console.log(res)
-        //             })
-        // },[])
 
         useEffect(()=>{
             if(IdCategory) {

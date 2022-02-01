@@ -1,39 +1,40 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import CartWidget from "./CartWidget";
 import { BrowserRouter, Switch, Route, Router, Link, NavLink} from 'react-router-dom'
 import { FaBars } from "react-icons/fa";
 import { IoMdClose } from "react-icons/io";
 import Logo from "../img/logo2.png"
+import { cartContext } from "./CartContext";
+
 
 const NavBar = () => {
     const [toggleIcon, setToggleIon] = useState(false)
-
+    const {carrito} = useContext(cartContext)
     const toggleMenu = () =>{
-        toggleIcon ? setToggleIon(false) : setToggleIon(true)
-        console.log(toggleIcon)
+            toggleIcon ? setToggleIon(false) : setToggleIon(true)
+            console.log(toggleIcon)
     }
     const men = "men's clothing"
     const woman = "women's clothing"
-
 
     return (
         <>
             <nav className="navbar">
                 <FaBars onClick={toggleMenu} className="toggleIcon"/>
                 <Link to={'/'}><img className="logo-brand" src={Logo} alt="logo"></img></Link>
-                <CartWidget />
+                <Link to={`/cart`}><div className='cartWidgetContainer'><CartWidget /><span className='quantityBadge'>{carrito.length}</span></div></Link>
                 <ul className={toggleIcon ? "links showNav" : "links"}>
-                    <li><Link to={'/'}>inicio</Link></li>
+                    <li><Link to={'/'} onClick={toggleMenu}>inicio</Link></li>
                     <li>Productos
                         <ul className="subMenu">
-                            <li><Link to={`/category/${men}`}>Ropa de Hombre</Link></li>
-                            <li><Link to={`/category/${woman}`}>Ropa de Mujer</Link></li>
-                            <li><Link to={`/category/jewelery`}>Joyería</Link></li>
-                            <li><Link to={`/category/electronics`}>Electrónica</Link></li>
+                            <li><Link to={`/category/${men}`} onClick={toggleMenu}>Ropa de Hombre</Link></li>
+                            <li><Link to={`/category/${woman}`} onClick={toggleMenu}>Ropa de Mujer</Link></li>
+                            <li><Link to={`/category/jewelery`} onClick={toggleMenu}>Joyería</Link></li>
+                            <li><Link to={`/category/electronics`} onClick={toggleMenu}>Electrónica</Link></li>
                         </ul>
                     </li>
-                    <li><Link to={'/nosotros'}>Nosotros</Link></li>
-                    <li><Link to={'/contacto'}>Contacto</Link></li>
+                    <li><Link to={'/nosotros'} onClick={toggleMenu}>Nosotros</Link></li>
+                    <li><Link to={'/contacto'} onClick={toggleMenu}>Contacto</Link></li>
                     <IoMdClose onClick={toggleMenu} className="closeIcon"/>
                 </ul>
             </nav>

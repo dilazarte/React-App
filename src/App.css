@@ -364,6 +364,25 @@ a{
 .links > li:hover .subMenu{
   display: block;
 }
+.cartWidgetContainer{
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  position: relative;
+}
+.quantityBadge{
+  color: white;
+  font-weight: 600;
+  text-align: center;
+  font-size: .8em;
+  background-color: #930b0b;
+  width: 1.5em;
+  border-radius: 50%;
+  position: absolute;
+  right: -15px;
+  top: -8px;
+}
 /*=====MEDIAS Q=====*/
 @media (max-width: 650px) {
   .toggleIcon{
