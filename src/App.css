@@ -380,7 +380,8 @@ a{
   width: 150px;
   background-color: #282c34ee;
   padding: 0;
-  height: 150px;
+  height: auto;
+  padding-bottom: 7px;
 }
 .subMenu li {
   padding-top: 12px;
