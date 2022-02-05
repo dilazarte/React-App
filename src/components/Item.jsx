@@ -6,7 +6,7 @@ function Item({item}) {
         <Link to={`/item/${item.id}`}>
             <div className='producto' id={item.id}>
                 
-                    <div className='img-container' style={{backgroundImage: `url(${item.image})`}}>
+                    <div className='img-container' style={{backgroundImage: `url(${item.img})`}}>
                         {/* <img className='img-item' src={item.image} alt={item.title} /> */}
                     </div>
                     <div className='info-item-container'>

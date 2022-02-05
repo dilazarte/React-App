@@ -19,17 +19,18 @@ function ItemDetail({item}) {
             setOnCart(true)
             console.log('se agregaron '+n+' articulos');
             // console.log(carrito);
-        }, 1000)
+        }, 500)
     }
     
     return(
         <div className='item-detail' id={item.id}>
-            <img src={item.image} alt={item.title}></img>
+            <img src={item.img} alt={item.title}></img>
             <div className='info-detail'>
                 <div className='item-info'>
                     <h1>{item.title}</h1>
                     <p>{item.description}</p>
                     <p>Precio: <span>${item.price} USD</span></p>
+                    <p>Stock: <span>{item.stock}</span></p>
                     <p>Categoria: <span>{item.category}</span></p>
                 </div>
                 {
@@ -45,7 +46,7 @@ function ItemDetail({item}) {
                     }
                     </>
                     :
-                    <ItemCount stock={4} initial={1} onAdd={onAdd}/>
+                    <ItemCount stock={item.stock} initial={1} onAdd={onAdd}/>
                 }
             </div>
         </div>
