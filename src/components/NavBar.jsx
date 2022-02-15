@@ -23,7 +23,7 @@ const NavBar = () => {
             <nav className="navbar">
                 <FaBars onClick={toggleMenu} className="toggleIcon"/>
                 <Link to={'/'}><img className="logo-brand" src={Logo} alt="logo"></img></Link>
-                <Link to={`/cart`}><div className='cartWidgetContainer'><CartWidget /><span className='quantityBadge'>{totalProds}</span></div></Link>
+                <Link to={`/cart`}><div className='cartWidgetContainer'><CartWidget /><span style={ totalProds ? {display: 'block'} : {display:'none'}}className='quantityBadge'>{totalProds}</span></div></Link>
                 <ul className={toggleIcon ? "links showNav" : "links"}>
                     <li><Link to={'/'} onClick={toggleMenu}>inicio</Link></li>
                     <li>Productos <AiOutlineRight className='prod-icon' />
@@ -38,6 +38,7 @@ const NavBar = () => {
                     <li><Link to={'/contacto'} onClick={toggleMenu}>Contacto</Link></li>
                     <IoMdClose onClick={toggleMenu} className="closeIcon"/>
                 </ul>
+                {/* <Link to={`/cart`}><div className='cartWidgetContainer'><CartWidget /><span style={ totalProds ? {display: 'block'} : {display:'none'}}className='quantityBadge'>{totalProds}</span></div></Link> */}
             </nav>
         </>
     )

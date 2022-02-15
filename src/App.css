@@ -43,7 +43,10 @@
 /*=======ESTILOS DEL NAV=====*/
 }
 body{
-  background-color: rgb(236, 236, 236);
+  background-color: rgb(253, 253, 253);
+  /* background-image: url('https://flevix.com/wp-content/uploads/2019/12/Live-Background-1.svg');
+  background-repeat: no-repeat;
+  background-size: cover; */
 }
 .navbar{
   display: flex;
@@ -52,7 +55,7 @@ body{
   align-items: center;
 }
 .logo-brand{
-  width: 200px;
+  width: 100px;
   padding: 7px 0;
 }
 .links{
@@ -143,12 +146,78 @@ ul li a:hover{
   align-items: center;
   border: 1px solid #e1e1e1;
 }
-.cartProducts{
-  width: 60%;
+.cartContainer{
+  width: 700px;
   margin: auto;
 }
-.cartContainer{
-  margin-bottom: 1em;
+.productContainer{
+  background-color: #fff;
+  margin: 1em 0px;
+  display: flex;
+  justify-content: center;
+  width: 700px;
+  margin: 1em auto;
+  border: 1px rgb(218, 218, 218) solid;
+  border-left: 4px solid #3ab15f;
+  border-radius: 5px;
+  height: 10em;
+  box-shadow: 0 0 .4em rgb(209, 209, 209);
+}
+.productDetailContainer img{
+  width: 150px;
+  object-fit: contain;
+}
+.productDetailContainer{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-between;
+}
+.productDetailInfo{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 70%;
+}
+/* .productContainer :nth-child(1){
+  display: flex;
+} */
+.productContainer .productControls{
+  display: flex;
+  height: 30px;
+}
+.productControls button{
+  background-color: #178bff;
+  border: none;
+  color: white;
+  font-family: 'Nunito';
+  font-weight: 600;
+  text-align: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  border-radius: 2px;
+  margin-right: 4px;
+}
+.productControls button:hover{
+  background-color: #0077ee;
+}
+.productControls :nth-child(4){
+  background-color: rgb(196, 27, 27);
+}
+.productControls :nth-child(4):hover{
+  background-color: rgb(212, 8, 8);
+}
+.productControls span{
+    width: 50px;
+    margin-right: 4px;
+    border: 1px solid #8a93a5;
+    align-items: center;
+    padding-bottom: 4px;
+    display: flex;
+    justify-content: center;
+    border-radius: 18px;
 }
 .itemCountContiner .addToCart{
   outline: none;
@@ -203,13 +272,13 @@ ul li a:hover{
   box-sizing: border-box;
   display: block;
   position: absolute;
-  width: 64px;
-  height: 64px;
+  width: 54px;
+  height: 54px;
   margin: 8px;
-  border: 6px solid #fff;
+  border: 5px solid #fff;
   border-radius: 50%;
   animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-  border-color: rgb(168, 168, 168) transparent transparent transparent;
+  border-color: #4e5461 transparent transparent transparent;
 }
 .lds-ring div:nth-child(1) {
   animation-delay: -0.45s;
@@ -294,7 +363,8 @@ a{
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  width: 60%;
+  /* width: 60%; */
+  width: 1000px;
   margin-top: 1em;
   margin-bottom: 1em;
   margin-left: auto;
@@ -303,11 +373,13 @@ a{
   padding: 1em;
   border-radius: 7px;
   box-shadow: 0 0 .4em rgb(219, 219, 219);
+  height: 550px;
 }
-.item-detail img{
+.item-detail .img-item{
   /* width: 40%; */
   /* height: 250px; */
-  max-width: 250px;
+  max-width: 400px;
+  min-width: 400px;
   max-height: 400px;
   min-height: 400px;
   margin: auto;
@@ -319,7 +391,7 @@ a{
   width: 50%;
   max-width: 600px;
   max-height: 550px;
-  min-height: 430px;
+  min-height: 500px;
   padding: 1em;
   flex-flow: column;
   justify-content: space-between;
@@ -327,8 +399,23 @@ a{
 .item-info{
   max-height: 260px;
 }
-.item-detail div > h1 {
-  font-size: 1em;
+.item-info h1{
+  text-transform: uppercase;
+  letter-spacing: .07em;
+  font-size: 1.6em;
+  position: relative;
+  color: #4e5461
+}
+.item-info h1::after{
+  margin-top: 4px;
+  content: '';
+  height: 4px;
+  width: 8em;
+  background-color: #4e5461;
+  position: absolute;
+  left: 0;
+  top:100%;
+  border-radius: 2px;
 }
 .item-detail div > p {
   font-family:'Nunito', sans-serif;
@@ -400,13 +487,87 @@ a{
   color: white;
   font-weight: 600;
   text-align: center;
-  font-size: .8em;
+  font-size: .7em;
   background-color: #930b0b;
-  width: 1.5em;
+  width: 1.4em;
   border-radius: 50%;
   position: absolute;
-  right: -15px;
+  right: -10px;
   top: -8px;
+}
+/*IMG THUMB*/
+.imgThumb-container{
+  display: flex;
+  /* justify-content: space-between; */
+  width: auto;
+  height: 60px;
+}
+.imgThumb-container .img-thumb{
+  width: 60px;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+  cursor: pointer;
+  border: 1px solid #ececec;
+  margin-right: 5px;
+  border-radius: 8px;
+  /* transition: .1s; */
+  opacity: .7;
+}
+/*=======Formulario======*/
+.formulario{
+  width: 95%;
+  max-width: 450px;
+  margin: auto;
+  margin-top: 2em;
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+  border: 1px solid rgb(202, 202, 202);
+  border-radius: 5px;
+  box-shadow: 0 0 .4em rgb(182, 181, 181);
+}
+.formulario h2{
+  margin-top: 0px;
+  margin-bottom: 1.5em;
+  text-transform: uppercase;
+  font-size: 17px;
+  font-weight: 500;
+}
+.formulario label{
+  text-transform: uppercase;
+  font-size: 14px;
+  opacity: .7;
+}
+.formulario div{
+  margin-bottom: 1em;
+}
+.inputsBox{
+  width: 100%;
+  height: 3em;
+  display: flex;
+  border: 2px solid rgb(228, 228, 228);
+  background-color: rgb(255, 255, 255);
+  border-radius: 5px;
+  outline: none;
+  margin-top: .3em;
+  font-size: 17px;
+  padding: 10px;
+}
+.formulario button{
+  background-color: #282c34;
+  color: white;
+  outline: none;
+  border: none;
+  padding: .6em;
+  font-family:'Nunito';
+  font-size: 18px;
+  margin-top: 1em;
+  border-radius: 5px;
+}
+.img-thumb.active{
+  border: 2px solid #93c9ff;
+  opacity: 1;
 }
 /*=====MEDIAS Q=====*/
 @media (max-width: 650px) {
@@ -461,21 +622,88 @@ a{
     width: 95%;
   }
 }
-@media (max-width: 950px){
+/* @media (max-width: 950px){
   .item-detail{
     width: 80%;
   }
-}
+} */
 @media (max-width: 840px){
-  /*infodetail*/
+  .item-detail img {
+    width: 100%;
+    overflow: hidden;
+  }
+}
+@media (max-width: 1070px){
   .item-detail{
     width: 90%;
+    height: auto;
   }
   .item-detail .info-detail{
     width: 100%;
     max-height: 100%;
   }
-  .item-detail img {
+  
+}
+@media (max-width: 795px){
+  .productContainer{
+    width: 90%;
+    height: 200px;
+  }
+  .cartContainer{
     width: 100%;
   }
+}
+@media (max-width: 555px){
+  .productDetailContainer img{
+    width: 130px
+  }
+  .productDetailInfo{
+    flex-direction: column;
+    width: 50%;
+    justify-content: center;
+    text-align: center;
+  }
+  .productDetailInfo h5{
+    margin-bottom: 10px;
+    padding: 0;
+    margin-top: 0;
+  }
+}
+@media (max-width: 430px){
+  .imgThumb-container{
+    height: 45px;
+  }
+  .imgThumb-container .img-thumb{
+    width: 45px;
+  }
+}
+@media (max-width: 430px){
+  .item-detail .img-item{
+    min-width: auto;
+    min-height: auto;
+  }
+}
+@media (max-width: 350px){
+  .item-detail .info-detail{
+    padding: .3em
+  }
+  .item-info{
+    max-height: 100%;
+    padding: 0px;
+  }
+  .item-info h1::after{
+    width: 5em;
+  }
+}
+@media (max-width: 315px){
+  .productDetailContainer{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.jeje{
+  color: red;
+  font-size: 16px;
 }

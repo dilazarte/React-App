@@ -4,6 +4,7 @@ import Loading from "./Loading";
 import { useParams } from 'react-router-dom';
 // import { doc, getDoc, getFirestore } from 'firebase'
 import { getFirestore } from '../config/getFirestore'
+import ItemDetailContainer from "./ItemDetailContainer";
 
 //inicio el firestore
 
@@ -39,19 +40,20 @@ const ItemListContainer = () => {
                     setArrayProductos(res.docs.map( (item) => {
                         return {...item.data(), id: item.id} } 
                     ));
-                    console.log(arrayProductos)
                 })
             }
                 
         
         }, [IdCategory])
-
+console.log(arrayProductos)
 
     return(
         <div className="ItemListContainer">
             {
                 (arrayProductos.length > 0) ? 
-                    <ItemList props={arrayProductos} />
+                <div>
+                    <ItemList array={arrayProductos} />
+                </div>
             :
             <div style={{margin: 'auto', display: 'flex', justifyContent: 'center', height: '80vh', alignItems: 'center'}}>
                 <Loading />
