@@ -1,11 +1,11 @@
 import React, {useEffect, useState} from 'react'
 import Item from './Item'
 
-function ItemList({props}) {
+function ItemList({array}) {
     return (
         <div className='itemList'>
-        {props.map(item => {
-                return <Item  key={item.id} item={item}/>
+        {array.map(item => {
+                return <Item  key={item.id} item={item} />
             })
         }
         </div>

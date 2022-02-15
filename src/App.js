@@ -9,6 +9,7 @@ import ItemDetail from './components/ItemDetail';
 import ItemDetailContainer from './components/ItemDetailContainer';
 import CartContext from './components/CartContext';
 import Cart from './components/Cart';
+import Checkout from './components/Checkout';
 
 
 function App() {
@@ -39,6 +40,7 @@ function App() {
               <Route exact path="/cart">
                 <Cart />
               </Route>
+              <Route exact path="/checkout"><Checkout /></Route>
             </Switch>
             
           </>

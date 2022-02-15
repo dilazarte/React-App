@@ -13,7 +13,7 @@ function CartContext({children}) {
         return acc =  acc + item.quantity
     },0)
     let totalPrice = carrito.reduce( (acc, item) => {
-        return acc =  acc + item.total()
+        return acc =  acc + item.price*item.quantity
     }, 0)
     console.log(totalProds)
     //funcion para agregar un item
@@ -23,7 +23,7 @@ function CartContext({children}) {
             setCarrito([...carrito])
             
         } else {
-            setCarrito([ ...carrito, {...item, 'quantity': quantity, 'total': function(){return this.price*this.quantity}}])
+            setCarrito([ ...carrito, {...item, quantity: quantity}]) //, 'total': function(){return this.price*this.quantity} //img: itemImg, 
         }
     }
     //funcion para remover un item en particular
