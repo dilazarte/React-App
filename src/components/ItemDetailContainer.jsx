@@ -7,16 +7,8 @@ import { getFirestore } from '../config/getFirestore'
 function ItemDetailContainer() {
     const {Id} = useParams()
     const [item, setItem] = useState([])
-
-
+    
     useEffect(()=>{
-        // fetch(`https://fakestoreapi.com/products/${Id}`)
-        //             .then(res=>res.json())
-        //             .then(res => {
-        //                 setItem([res])
-        //                 console.log(res)
-        // })
-        
         const db = getFirestore()
         const itemCollection = db.collection('items')
         //pido el item con el id segun el producto
@@ -25,13 +17,11 @@ function ItemDetailContainer() {
         item.get()
         .then((res)=>{
             if (!res.exists){
-                console.log('item especifico no escontrado')
                 return
             }
-            console.log('se encontro un item que coincido con el id')
             setItem([{id: res.id, ...res.data()}])
         })
-    }, [])
+    }, [Id])
     return(
         <div>
             {
@@ -41,6 +31,7 @@ function ItemDetailContainer() {
                         item.map( item => {
                             return <ItemDetail key={item.id} item={item} />
                         })
+                        
                     }
                 </>
                 :
@@ -48,7 +39,6 @@ function ItemDetailContainer() {
                     <Loading />
                 </div>
             }
-            
         </div>
     )
 }

@@ -5,39 +5,29 @@ export const cartContext = createContext();
 
 function CartContext({children}) {
     const [carrito, setCarrito] = useState([])
-    useEffect(()=>{
-        console.log("se está renderizando........")
-        console.log(carrito)
-    })
     let totalProds = carrito.reduce( (acc, item) => {
         return acc =  acc + item.quantity
     },0)
     let totalPrice = carrito.reduce( (acc, item) => {
         return acc =  acc + item.price*item.quantity
     }, 0)
-    console.log(totalProds)
-    //funcion para agregar un item
+    
     const addItem = (item, quantity) =>{
         if (isInCart(item.id) > -1) {
             carrito[isInCart(item.id)].quantity = carrito[isInCart(item.id)].quantity + quantity
             setCarrito([...carrito])
-            
-        } else {
-            setCarrito([ ...carrito, {...item, quantity: quantity}]) //, 'total': function(){return this.price*this.quantity} //img: itemImg, 
+        } 
+        else {
+            setCarrito([ ...carrito, {...item, quantity: quantity}])
         }
     }
-    //funcion para remover un item en particular
     const removeItem = (id) =>{
-        // let index = carrito.indexOf(item => item.id == id)
-        setCarrito( carrito.filter(item => item.id != id) )
-        console.log(carrito)
+        setCarrito( carrito.filter(item => item.id !== id) )
     }
-    //funcion para no permitir duplicados
     const isInCart = (id) =>{
         let index = carrito.findIndex(index => index.id === id)
         return index
     }
-    //funcion para vaciar todo el carrito!
     const clearCart = () =>{
         setCarrito([])
     }
@@ -50,9 +40,36 @@ function CartContext({children}) {
         carrito[isInCart(id)].quantity = carrito[isInCart(id)].quantity - 1 }
         setCarrito([...carrito])
     }
+    //funciones de favoritos:
+    const [favoritos, setFavoritos] = useState([])
+    const [activo, setActivo] = useState(false)
+    const agregarFav = (item) => {
+        let index = favoritos.findIndex(el => el.id === item.id)
+        if (index > -1) {
+            setFavoritos(favoritos.filter(el => el.id !== item.id))
+        } else {
+            setFavoritos([...favoritos, item])
+        }
+    }
     return(
         <>
-            <cartContext.Provider value={{carrito, setCarrito, removeItem, addItem, clearCart, sumar, restar, totalProds, totalPrice}}>
+            <cartContext.Provider
+                value={{carrito,
+                    setCarrito,
+                    removeItem,
+                    addItem,
+                    clearCart,
+                    sumar,
+                    restar,
+                    totalProds,
+                    totalPrice,
+                    favoritos,
+                    setFavoritos,
+                    activo,
+                    setActivo,
+                    agregarFav,
+                    isInCart
+                }}>
                 {children}
             </cartContext.Provider>
         </>
