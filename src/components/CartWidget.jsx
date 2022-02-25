@@ -1,11 +1,13 @@
 import React, { useContext } from "react";
-import { FaShoppingCart } from "react-icons/fa";
+import { MdShoppingCart } from "react-icons/md";
 import { cartContext } from './CartContext'
 
 const CartWidget = () => {
     const {carrito} = useContext(cartContext)
     return(
-        <FaShoppingCart color="white" fontSize="1.1em"/>
+        <>
+        <MdShoppingCart color="white" fontSize="1.1em"  />
+        </>
     )
 }
 
